@@ -1,0 +1,253 @@
+/* 导入来自 Google Fonts 的 Lato 字体，并应用于页面 */
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+    /* 设置全局样式，将所有元素的盒模型设置为 border-box */
+    box-sizing: border-box;
+}
+
+body {
+    /* 使用 Lato 字体作为页面的默认字体 */
+    font-family: 'Lato', sans-serif;
+
+    /* 设置页面的背景颜色为 #333 */
+    background-color: #333;
+
+    /* 设置页面的文字颜色为 #222 */
+    color: #222;
+
+    /* 水平方向上隐藏溢出的内容 */
+    overflow-x: hidden;
+
+    /* 设置页面的外边距为 0 */
+    margin: 0;
+}
+
+.container {
+    /* 设置容器的背景颜色为 #fafafa */
+    background-color: #fafafa;
+
+    /* 设置变换的原点在容器的左上角 */
+    transform-origin: top left;
+
+    /* 设置变换的过渡效果为 0.5 秒的线性过渡 */
+    transition: transform 0.5s linear;
+
+    /* 设置容器的宽度为视口宽度的 100% */
+    width: 100vw;
+
+    /* 设置容器的最小高度为视口高度的 100% */
+    min-height: 100vh;
+
+    /* 设置容器的内边距为视口高度的 10% 和视口宽度的 10% */
+    padding: 10vh 10vw;
+}
+
+.container.show-nav {
+    /* 当容器具有 show-nav 类时 对容器应用 -20 度的旋转变换 */
+    transform: rotate(-20deg);
+}
+
+.circle-container {
+    /* 设置圆形容器的定位为固定定位 */
+    position: fixed;
+
+    /* 将圆形容器的顶部位置设置为 -100px */
+    top: -100px;
+
+    /* 将圆形容器的左侧位置设置为 -100px */
+    left: -100px;
+}
+
+.circle {
+    /* 设置圆形的背景颜色为 #ff7979 */
+    background-color: #ff7979;
+
+    /* 设置圆形的高度为 200px */
+    height: 200px;
+
+    /* 设置圆形的宽度为 200px */
+    width: 200px;
+
+    /* 设置圆形的边框半径为 50%（即形成一个圆形） */
+    border-radius: 50%;
+
+    /* 设置圆形的定位为相对定位 */
+    position: relative;
+
+    /* 设置圆形的过渡效果为 0.5 秒的线性过渡 */
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+    /* 当容器具有 show-nav 类时 对圆形应用 -70 度的旋转变换 */
+    transform: rotate(-70deg);
+}
+
+.circle button {
+    /* 设置鼠标悬停时的光标为指针样式 */
+    cursor: pointer;
+
+    /* 设置按钮的定位为绝对定位 */
+    position: absolute;
+
+    /* 将按钮的顶部位置设置为 50%（居中显示） */
+    top: 50%;
+
+    /* 将按钮的左侧位置设置为 50%（居中显示） */
+    left: 50%;
+
+    /* 设置按钮的高度为 100px */
+    height: 100px;
+
+    /* 设置按钮的背景为透明 */
+    background: transparent;
+
+    /* 设置按钮的边框为 0 */
+    border: 0;
+
+    /* 设置按钮的字体大小为 26px */
+    font-size: 26px;
+
+    /* 设置按钮的文字颜色为 #fff */
+    color: #fff;
+}
+
+.circle button:focus {
+    /* 当按钮获得焦点时 移除按钮的默认外观样式 */
+    outline: none;
+}
+
+.circle button#open {
+    /* 设置 id 为 "open" 的按钮的左侧位置为 60% */
+    left: 60%;
+}
+
+.circle button#close {
+    /* 设置 id 为 "close" 的按钮的顶部位置为 60% */
+    top: 60%;
+
+    /* 对关闭按钮应用 90 度的旋转变换 */
+    transform: rotate(90deg);
+
+    /* 设置旋转变换的原点在左上角 */
+    transform-origin: top left;
+}
+
+/* 当容器具有 show-nav 类时应用到下一个兄弟元素 nav li 的样式 */
+.container.show-nav+nav li {
+    /* 将下一个兄弟元素 nav li 沿 X 轴方向平移 0 */
+    transform: translateX(0);
+
+    /* 设置平移过渡效果的延迟时间为 0.3 秒 */
+    transition-delay: 0.3s;
+}
+
+nav {
+    /* 设置 nav 元素的定位为固定定位 */
+    position: fixed;
+
+    /* 设置 nav 元素的底部位置为 40px */
+    bottom: 40px;
+
+    /* 设置 nav 元素的左侧位置为 0 */
+    left: 0;
+
+    /* 设置 nav 元素的层叠顺序为 100（位于其他元素之上） */
+    z-index: 100;
+}
+
+nav ul {
+    /* 设置无序列表的列表样式为无 */
+    list-style-type: none;
+
+    /* 设置左侧内边距为 30px */
+    padding-left: 30px;
+}
+
+nav ul li {
+    /* 将列表项的文本转换为大写 */
+    text-transform: uppercase;
+
+    /* 设置列表项的文字颜色为 #fff */
+    color: #fff;
+
+    /* 设置上下边距为 40px，左侧边距为 -100%（向左偏移） */
+    margin: 40px 0;
+    transform: translateX(-100%);
+
+    /* 设置平移过渡效果为 0.4 秒的 ease-in 过渡 */
+    transition: transform 0.4s ease-in;
+}
+
+/* 设置 nav ul li 元素之后的第二个相邻元素的样式 */
+nav ul li+li {
+    /* 设置左侧边距为 15px，左侧偏移为 -150%（向左偏移） */
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+/* 设置 nav ul li 元素之后的第三个相邻元素的样式 */
+nav ul li+li+li {
+    /* 设置左侧边距为 30px，左侧偏移为 -200%（向左偏移） */
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav a {
+    /* 设置链接文本颜色为 #fafafa */
+    color: #fafafa;
+
+    /* 设置链接的文本装饰为无 */
+    text-decoration: none;
+
+    /* 设置所有过渡效果的过渡时间为 0.5 秒 */
+    transition: all 0.5s;
+}
+
+nav a:hover {
+    /* 设置鼠标悬停时的链接文本颜色为 #FF7979 */
+    color: #FF7979;
+
+    /* 设置鼠标悬停时的链接文本加粗 */
+    font-weight: bold;
+}
+
+.content img {
+    /* 设置图片的最大宽度为 100% */
+    max-width: 100%;
+}
+
+.content {
+    /* 设置内容容器的最大宽度为 1000px */
+    max-width: 1000px;
+
+    /* 设置内容容器的上下外边距为 50px，左右外边距自动居中 */
+    margin: 50px auto;
+}
+
+.content h1 {
+    /* 设置标题的上下外边距为 0 */
+    margin: 0;
+}
+
+.content small {
+    /* 设置小字体的颜色为 #555 */
+    color: #555;
+
+    /* 设置小字体的样式为斜体 */
+    font-style: italic;
+}
+
+.content p {
+    /* 设置段落的颜色为 #333 */
+    color: #333;
+
+    /* 设置段落的行高为 1.5倍文字大小 */
+    line-height: 1.5;
+}
