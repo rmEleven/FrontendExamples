@@ -1,0 +1,210 @@
+/* 导入 Google Fonts 字体 */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* 根元素样式 */
+:root {
+    /* 定义线条填充颜色 */
+    --line-border-fill: #3498db;
+
+    /* 定义线条空白颜色 */
+    --line-border-empty: #383838;
+
+}
+
+* {
+    /* 设置所有元素的盒模型为 border-box */
+    box-sizing: border-box;
+}
+
+body {
+    /* 背景颜色 */
+    background-color: #1f1f1f;
+
+    /* 使用 'Muli' 字体，并指定后备字体族组 */
+    font-family: 'Muli', sans-serif;
+
+    /* 将 body 设置为弹性布局 */
+    display: flex;
+
+    /* 在垂直方向上居中对齐 */
+    align-items: center;
+
+    /* 在水平方向上居中对齐 */
+    justify-content: center;
+
+    /* 去除 body 的默认边距 */
+    margin: 0;
+
+    /* 设置 body 的高度为视口高度 */
+    height: 100vh;
+
+    /* 隐藏 body 内容溢出的部分 */
+    overflow: hidden;
+}
+
+.container {
+    /* 文本水平居中对齐 */
+    text-align: center;
+}
+
+.progress-container {
+    /* 使用弹性布局 */
+    display: flex;
+
+    /* 两端对齐 */
+    justify-content: space-between;
+
+    /* 相对定位 相对于父元素定位 */
+    position: relative;
+
+    /* 设置底部边距为30像素 */
+    margin-bottom: 30px;
+
+    /* 最大宽度为父元素的100% */
+    max-width: 100%;
+
+    /* 固定宽度为350像素 */
+    width: 350px;
+}
+
+.progress-container::before {
+    /* 伪元素内容为空 */
+    content: '';
+
+    /* 使用CSS变量设置背景颜色 */
+    background-color: var(--line-border-empty);
+
+    /* 绝对定位 相对于父元素定位 */
+    position: absolute;
+
+    /* 将元素的上边缘位置设置为父元素高度的50% */
+    top: 50%;
+
+    /* 将元素的左边缘位置设置为0 */
+    left: 0;
+
+    /* 通过垂直偏移将元素在垂直方向上居中对齐 */
+    transform: translateY(-50%);
+
+    /* 设置元素的高度为4像素 */
+    height: 4px;
+
+    /* 设置元素的宽度为父元素的100% */
+    width: 100%;
+
+    /* 设置元素的堆叠顺序为-1，使其位于其他元素的下方 */
+    z-index: -1;
+}
+
+.progress {
+    /* 使用CSS变量设置背景颜色 */
+    background-color: var(--line-border-fill);
+
+    /* 绝对定位 相对于父元素定位 */
+    position: absolute;
+
+    /* 将元素的上边缘位置设置为父元素高度的50% */
+    top: 50%;
+
+    /* 将元素的左边缘位置设置为0 */
+    left: 0;
+
+    /* 通过垂直偏移将元素在垂直方向上居中对齐 */
+    transform: translateY(-50%);
+
+    /* 设置元素的高度为4像素 */
+    height: 4px;
+
+    /* 设置元素的宽度为父元素的0% */
+    width: 0%;
+
+    /* 设置元素的堆叠顺序为-1，使其位于其他元素的下方 */
+    z-index: -1;
+
+    /* 定义元素的过渡效果，持续时间为0.4秒，使用ease缓动函数 */
+    transition: 0.4s ease;
+}
+
+.circle {
+    /* 设置圆形元素的背景颜色为 #1f1f1f */
+    background-color: #1f1f1f;
+
+    /* 设置圆形元素的文本颜色为 #e2e2e2 */
+    color: #e2e2e2;
+
+    /* 设置圆形元素的圆角半径为50%，使其呈现圆形 */
+    border-radius: 50%;
+
+    /* 设置圆形元素的高度为30像素 */
+    height: 30px;
+
+    /* 设置圆形元素的宽度为30像素 */
+    width: 30px;
+
+    /* 设置圆形元素的显示方式为弹性布局 */
+    display: flex;
+
+    /* 设置圆形元素的垂直对齐方式为居中对齐 */
+    align-items: center;
+
+    /* 设置圆形元素的水平对齐方式为居中对齐 */
+    justify-content: center;
+
+    /* 设置圆形元素的边框为3像素宽，并使用CSS变量(--line-border-empty)设置边框颜色 */
+    border: 3px solid var(--line-border-empty);
+
+    /* 定义元素的过渡效果，持续时间为0.4秒，使用ease缓动函数 */
+    transition: 0.4s ease;
+}
+
+.circle.active {
+    /* 设置圆形元素的边框颜色为CSS变量 (--line-border-fill) */
+    border-color: var(--line-border-fill);
+}
+
+.btn {
+    /* 设置按钮的背景颜色为CSS变量 (--line-border-fill) */
+    background-color: var(--line-border-fill);
+
+    /* 设置按钮的文本颜色为 #fff */
+    color: #fff;
+
+    /* 设置按钮的边框为0 */
+    border: 0;
+
+    /* 设置按钮的圆角半径为6像素 */
+    border-radius: 6px;
+
+    /* 设置鼠标悬停在按钮上时的光标样式为手型 */
+    cursor: pointer;
+
+    /* 设置按钮的字体族与父元素相同 */
+    font-family: inherit;
+
+    /* 设置按钮的内边距为8像素的顶部和底部，30像素的左侧和右侧 */
+    padding: 8px 30px;
+
+    /* 设置按钮的外边距为5像素 */
+    margin: 5px;
+
+    /* 设置按钮的字体大小为14像素 */
+    font-size: 14px;
+}
+
+.btn:active {
+    /* 缩小按钮的尺寸为原尺寸的0.98倍 */
+    transform: scale(0.98);
+}
+
+.btn:focus {
+    /* 取消按钮的聚焦时的外边框样式 */
+    outline: 0;
+}
+
+.btn:disabled {
+    /* 设置按钮的背景颜色为CSS变量 (--line-border-empty) */
+    background-color: var(--line-border-empty);
+
+    /* 设置禁用按钮的光标样式为不可用 */
+    cursor: not-allowed;
+}
