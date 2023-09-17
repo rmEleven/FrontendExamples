@@ -1,0 +1,120 @@
+/* 引入 Google Fonts 外部样式表 */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    /* 设置所有元素的盒模型为 border-box */
+    box-sizing: border-box;
+}
+
+body {
+    /* 使用 'Muli' 字体，并指定后备字体族组 */
+    font-family: 'Muli', sans-serif;
+
+    /* 将 body 设置为弹性布局 */
+    display: flex;
+
+    /* 在垂直方向上居中对齐 */
+    align-items: center;
+
+    /* 在水平方向上居中对齐 */
+    justify-content: center;
+
+    /* 去除 body 的默认边距 */
+    margin: 0;
+
+    /* 设置 body 的高度为视口高度 */
+    height: 100vh;
+
+    /* 隐藏 body 内容溢出的部分 */
+    overflow: hidden;
+}
+
+.container {
+    /* 将容器设置为弹性布局 */
+    display: flex;
+
+    /* 设置容器的宽度为视口宽度的 90% */
+    width: 90vw;
+}
+
+.panel {
+    /* 设置背景图像不重复 */
+    background-repeat: no-repeat;
+
+    /* 设置背景图像居中显示 */
+    background-position: center;
+
+    /* 设置背景图像覆盖整个区域 */
+    background-size: cover;
+
+    /* 设置板块的高度为视口高度的 80% */
+    height: 80vh;
+
+    /* 设置板块的外边距为 10px */
+    margin: 10px;
+
+    /* 设置板块的定位为相对定位 */
+    position: relative;
+
+    /* 设置板块的圆角半径为 50px */
+    border-radius: 50px;
+
+    /* 设置板块在弹性布局中的占比为 0.5 */
+    flex: 0.5;
+
+    /* 设置文字颜色为白色 */
+    color: white;
+
+    /* 设置鼠标悬停时的光标样式为手型 */
+    cursor: pointer;
+
+    /* 设置过渡效果的持续时间为 700ms，缓动函数为 ease-in */
+    transition: all 700ms ease-in;
+}
+
+.panel h3 {
+    /* 设置标题的字体大小为 24px */
+    font-size: 24px;
+
+    /* 设置标题的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置标题距离底部的距离为 20px */
+    bottom: 20px;
+
+    /* 设置标题距离左侧的距离为 20px */
+    left: 20px;
+
+    /* 去除标题的默认边距 */
+    margin: 0;
+
+    /* 设置标题的不透明度为 0，使其隐藏 */
+    opacity: 0;
+}
+
+.panel.active {
+    /* 设置激活状态的板块在弹性布局中的占比为 5 */
+    flex: 5;
+}
+
+.panel.active h3 {
+    /* 设置激活状态的板块标题的不透明度为 1，使其显示 */
+    opacity: 1;
+
+    /* 设置标题透明度的过渡效果 */
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+/* 在小屏幕设备上应用的媒体查询样式 */
+@media (max-width: 480px) {
+    .container {
+        /* 设置容器的宽度为视口宽度的 100% */
+        width: 100vw;
+    }
+
+    /* 隐藏第 4 和第 5 个板块 */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+}
