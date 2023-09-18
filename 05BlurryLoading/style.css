@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+    /* 设置所有元素的 CSS 盒模型为 border-box，保证元素的宽度和高度包括内边距和边框 */
+    box-sizing: border-box;
+}
+
+body {
+    /* 设置字体为 'Ubuntu'，sans-serif 作为后备字体 */
+    font-family: 'Ubuntu', sans-serif;
+
+    /* 将 body 元素设置为弹性容器，子元素在水平和垂直方向上居中对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 设置 body 元素的高度为视口的 100% */
+    height: 100vh;
+
+    /* 设置溢出隐藏，当内容超出视口时不显示滚动条 */
+    overflow: hidden;
+
+    /* 设置 body 元素的外边距为 0 */
+    margin: 0;
+}
+
+.bg {
+    background: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80') no-repeat center center/cover;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: calc(100vw + 60px);
+    height: calc(100vh + 60px);
+    z-index: -1;
+    filter: blur(0px);
+}
+
+.loading-text {
+    font-size: 50px;
+    color: #fff;
+}
