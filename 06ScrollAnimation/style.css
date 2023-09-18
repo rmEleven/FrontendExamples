@@ -1,0 +1,80 @@
+/* 导入来自 Google Fonts 的 Roboto 字体，400 和 700 权重，并在页面中使用 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    /* 设置所有元素的 CSS 盒模型为 border-box，保证元素的宽度和高度包括内边距和边框 */
+    box-sizing: border-box;
+}
+
+body {
+    /* 设置 body 元素的背景颜色为 #efedd6 */
+    background-color: #efedd6;
+
+    /* 设置字体为 'Roboto'，sans-serif 作为后备字体 */
+    font-family: 'Roboto', sans-serif;
+
+    /* 将 body 元素设置为弹性容器，子元素在垂直方向上居中对齐 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* 设置 body 元素的外边距为 0 */
+    margin: 0;
+
+    /* 设置水平方向上的溢出隐藏，当内容超出视口宽度时不显示滚动条 */
+    overflow-x: hidden;
+}
+
+h1 {
+    /* 设置 h1 元素的外边距为 50px */
+
+    margin: 50px;
+}
+
+.box {
+    /* 设置 .box 类的背景颜色为 steelblue */
+    background-color: steelblue;
+
+    /* 设置 .box 类的文本颜色为白色 */
+    color: #fff;
+
+    /* 将 .box 类设置为弹性容器，子元素在垂直和水平方向上居中对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 设置 .box 类的宽度为 400px，高度为 200px */
+    width: 400px;
+    height: 200px;
+
+    /* 设置 .box 类的外边距为 10px */
+    margin: 10px;
+
+    /* 设置 .box 类的圆角半径为 10px */
+    border-radius: 10px;
+
+    /* 设置 .box 类的阴影效果，偏移量为 2px 水平、4px 垂直，模糊半径为 5px，颜色为黑色，透明度为 0.3 */
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+
+    /* 设置 .box 类的水平平移变换，将其向右平移 400% 的宽度 */
+    transform: translateX(400%);
+
+    /* 设置 .box 类的平移变换过渡效果，持续时间为 0.4 秒，缓动函数为 ease */
+    transition: transform 0.4s ease;
+}
+
+.box:nth-of-type(even) {
+    /* 对于偶数索引的 .box 类，设置其水平平移变换，将其向左平移 400% 的宽度 */
+    transform: translateX(-400%);
+}
+
+.box.show {
+    /* 对于具有类名 'show' 的 .box 类，设置其水平平移变换，将其平移到原始位置，即水平方向上不进行平移 */
+    transform: translateX(0);
+}
+
+.box h2 {
+    /* 设置 .box 类内部的 h2 元素的字体大小为 45px */
+    font-size: 45px;
+}
