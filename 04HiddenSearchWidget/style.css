@@ -1,0 +1,131 @@
+/* 导入 Google Fonts API 中的 Roboto 字体，包括 400 和 700 字重，用于后续的元素 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    /* 设置所有元素的 CSS 盒模型为 border-box，保证元素的宽度和高度包括内边距和边框 */
+    box-sizing: border-box;
+}
+
+body {
+    /* 设置背景图像为从左上角到右下角的线性渐变，颜色从 #7d5fff 到 #7158e2，0deg 是从下到上 */
+    background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+
+    /* 设置字体为 'Roboto'，sans-serif 作为后备字体 */
+    font-family: 'Roboto', sans-serif;
+
+    /* 将 body 元素设置为弹性容器，子元素在水平和垂直方向上居中对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 设置 body 元素的高度为视口的 100% */
+    height: 100vh;
+
+    /* 设置溢出隐藏，当内容超出视口时不显示滚动条 */
+    overflow: hidden;
+
+    /* 设置 body 元素的外边距为 0 */
+    margin: 0;
+}
+
+.search {
+    /* 设置元素的定位为相对定位 */
+    position: relative;
+
+    /* 设置元素的高度为 50px */
+    height: 50px;
+}
+
+/* 设置具有类名为 "search" 的元素内具有类名为 "input" 的元素的样式 */
+.search .input {
+    /* 设置背景颜色为 #fff */
+    background-color: #fff;
+
+    /* 设置边框为 0 */
+    border: 0;
+
+    /* 设置圆形的边框半径为 25px */
+    border-radius: 25px;
+
+    /* 设置字体大小为 18px */
+    font-size: 18px;
+
+    /* 设置内边距为 15px */
+    padding: 15px;
+
+    /* 设置元素的高度为 50px */
+    height: 50px;
+
+    /* 设置元素的宽度为 50px */
+    width: 50px;
+
+    /* 设置宽度变换的过渡效果为 0.3 秒的 ease 过渡 */
+    transition: width 0.3s ease;
+}
+
+.btn {
+    /* 设置背景颜色为 #fff */
+    background-color: #fff;
+
+    /* 设置边框为 0 */
+    border: 0;
+
+    /* 设置圆形的边框半径为 25px */
+    border-radius: 25px;
+
+    /* 设置光标样式为指针 */
+    cursor: pointer;
+
+    /* 设置字体大小为 24px */
+    font-size: 24px;
+
+    /* 设置元素的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置元素的顶部位置为 0 */
+    top: 0;
+
+    /* 设置元素的左侧位置为 0 */
+    left: 0;
+
+    /* 设置元素的高度为 50px */
+    height: 50px;
+
+    /* 设置元素的宽度为 50px */
+    width: 50px;
+
+    /* 设置变换的过渡效果为 0.3 秒的 ease 过渡 */
+    transition: transform 0.3s ease;
+}
+
+.btn:focus,
+.input:focus {
+    /* 设置轮廓样式为无（去除聚焦时的边框） */
+    outline: none;
+}
+
+/* 设置具有类名为 "search" 且拥有类名为 "active" 的元素内具有类名为 "input" 的元素的样式 */
+.search.active .input {
+    /* 当搜索元素处于活动状态时，将输入框的宽度设置为 200px */
+    width: 200px;
+}
+
+/* 设置具有类名为 "search" 且拥有类名为 "active" 的元素内具有类名为 "btn" 的元素的样式 */
+.search.active .btn {
+    /* 沿着 X 轴（水平方向）移动元素的位置，将其从原来的位置向右移动 202 像素 */
+    transform: translateX(202px);
+}
+
+/*
+position: absolute;：
+
+绝对定位的元素会脱离文档流，并相对于最近的已定位祖先元素进行定位。
+通过设置 top、right、bottom 和 left 属性来指定元素相对于其定位上下文的偏移量。
+如果没有找到已定位的祖先元素，则相对于最初的包含块（通常是视口）进行定位，使用窗口坐标进行偏移。
+
+
+position: relative;：
+
+相对定位的元素仍然保留其在文档流中的空间，并相对于其在文档流中正常位置的位置进行定位。
+通过设置 top、right、bottom 和 left 属性来指定元素相对于其正常位置的偏移量。
+*/
