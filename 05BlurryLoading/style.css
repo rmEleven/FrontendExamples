@@ -1,3 +1,4 @@
+/* 导入来自 Google Fonts 的 Ubuntu 字体 */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 * {
@@ -25,17 +26,34 @@ body {
 }
 
 .bg {
+    /* 设置背景图片，图片 URL 可以根据需要进行修改 */
     background: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80') no-repeat center center/cover;
+
+    /* 设置元素的定位为绝对定位 */
     position: absolute;
+
+    /* 设置 top left width height 以消除图片边缘模糊的影响 */
+
+    /* 设置元素相对于其包含块的上边距位置 */
     top: -30px;
+    /* 设置元素相对于其包含块的左边距位置 */
     left: -30px;
+    /* 设置元素的宽度为视口宽度加上 60px */
     width: calc(100vw + 60px);
+    /* 设置元素的高度为视口高度加上 60px */
     height: calc(100vh + 60px);
+
+    /* 设置元素的层叠顺序为 -1，使其位于其他元素之后 */
     z-index: -1;
+
+    /* 设置元素的模糊效果，这里的模糊半径为 0px */
     filter: blur(0px);
 }
 
 .loading-text {
-    font-size: 50px;
+    /* 设置字体大小为 50px */
+    font-size: 100px;
+
+    /* 设置文本颜色为白色 */
     color: #fff;
 }
