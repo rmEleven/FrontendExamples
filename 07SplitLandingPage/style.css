@@ -1,0 +1,260 @@
+/* 导入来自 Google Fonts 的 Roboto 字体，包括 400 和 700 字重 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* 定义 CSS 变量 */
+:root {
+    /* 左侧背景颜色，带有透明度 */
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+
+    /* 右侧背景颜色，带有透明度 */
+    --right-bg-color: rgba(43, 43, 43, 0.8);
+
+    /* 左侧按钮悬停时的颜色 */
+    --left-btn-hover-color: rgba(87, 84, 236, 1);
+
+    /* 右侧按钮悬停时的颜色 */
+    --right-btn-hover-color: rgba(28, 122, 28, 1);
+
+    /* 鼠标悬停时元素的宽度 */
+    --hover-width: 75%;
+
+    /* 鼠标悬停时其他元素的宽度 */
+    --other-width: 25%;
+
+    /* 过渡动画的速度 */
+    --speed: 1000ms;
+}
+
+* {
+    /* 设置所有元素的 CSS 盒模型为 border-box，保证元素的宽度和高度包括内边距和边框 */
+    box-sizing: border-box;
+}
+
+body {
+    /* 设置字体为 'Roboto'，sans-serif 作为后备字体 */
+    font-family: 'Roboto', sans-serif;
+
+    /* 设置 body 元素的高度为视口的 100% */
+    height: 100vh;
+
+    /* 设置 body 元素的外边距为 0 */
+    margin: 0;
+
+    /* 设置溢出隐藏，当内容超出视口时不显示滚动条 */
+    overflow: hidden;
+
+    /* 禁止用户选择文本内容 */
+    user-select: none;
+}
+
+h1 {
+    /* 设置标题的字体大小为 4rem */
+    font-size: 4rem;
+
+    /* 设置标题的颜色为白色 */
+    color: #fff;
+
+    /* 设置标题的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置标题相对于其包含块的垂直位置为 20% */
+    top: 20%;
+
+    /* 设置标题相对于其包含块的水平位置为 50% */
+    left: 50%;
+
+    /* 设置标题的文本不换行 */
+    white-space: nowrap;
+
+    /* 水平居中标题 */
+    transform: translateX(-50%);
+}
+
+.btn {
+    /* 设置按钮的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置按钮相对于其包含块的垂直位置为 40% */
+    top: 40%;
+
+    /* 设置按钮相对于其包含块的水平位置为 50% */
+    left: 50%;
+
+    /* 设置按钮的宽度为 15rem */
+    width: 15rem;
+
+    /* 设置按钮的内边距为 1.5rem */
+    padding: 1.5rem;
+
+    /* 将按钮内部内容水平和垂直居中对齐 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 水平居中按钮 */
+    transform: translateX(-50%);
+
+    /* 设置文本装饰为无，将文字转换为大写格式 */
+    text-decoration: none;
+    text-transform: uppercase;
+
+    /* 设置按钮的字体颜色为白色 */
+    color: #fff;
+
+    /* 设置按钮的字体大小为 1rem */
+    font-size: 1rem;
+
+    /* 设置按钮的字体加粗 */
+    font-weight: bold;
+
+    /* 设置按钮的边框样式为白色实线边框，宽度为 0.2rem */
+    border: #fff solid 0.2rem;
+}
+
+.split.left .btn:hover {
+    /* 当鼠标悬停在左侧元素的按钮上时，设置按钮的背景颜色和边框颜色为左侧按钮悬停时的颜色 */
+    background-color: var(--left-btn-hover-color);
+    border-color: var(--left-btn-hover-color);
+}
+
+.split.right .btn:hover {
+    /* 当鼠标悬停在右侧元素的按钮上时，设置按钮的背景颜色和边框颜色为右侧按钮悬停时的颜色 */
+    background-color: var(--right-btn-hover-color);
+    border-color: var(--right-btn-hover-color);
+}
+
+.container {
+    /* 设置容器元素的定位为相对定位 */
+    position: relative;
+
+    /* 设置容器元素的宽度为100% */
+    width: 100%;
+
+    /* 设置容器元素的高度为100% */
+    height: 100%;
+
+    /* 设置容器元素的背景颜色为 #333 */
+    background-color: #333;
+}
+
+.split {
+    /* 设置分割元素的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置分割元素的宽度为50% */
+    width: 50%;
+
+    /* 设置分割元素的高度为100% */
+    height: 100%;
+
+    /* 设置分割元素的溢出隐藏 */
+    overflow: hidden;
+}
+
+.split.left {
+    /* 设置左侧分割元素的左偏移为 0 */
+    left: 0;
+
+    /* 设置左侧分割元素的背景图片为 './ps.jpg' */
+    background-image: url('./ps.jpg');
+
+    /* 设置背景图片不重复 */
+    background-repeat: no-repeat;
+
+    /* 设置背景图片的尺寸为覆盖整个元素 */
+    background-size: cover;
+}
+
+.split.left::before {
+    /* 在左侧分割元素之前插入一个伪元素 */
+    content: '';
+
+    /* 设置伪元素的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置伪元素的宽度为100% */
+    width: 100%;
+
+    /* 设置伪元素的高度为100% */
+    height: 100%;
+
+    /* 设置伪元素的背景颜色为左侧背景颜色，带有透明度 */
+    background-color: var(--left-bg-color);
+}
+
+.split.right {
+    /* 设置右侧分割元素的右偏移为 0 */
+    right: 0;
+
+    /* 设置右侧分割元素的背景图片为 './xbox.jpg' */
+    background-image: url('./xbox.jpg');
+
+    /* 设置背景图片不重复 */
+    background-repeat: no-repeat;
+
+    /* 设置背景图片的尺寸为覆盖整个元素 */
+    background-size: cover;
+}
+
+.split.right::before {
+    /* 在右侧分割元素之前插入一个伪元素 */
+    content: '';
+
+    /* 设置伪元素的定位为绝对定位 */
+    position: absolute;
+
+    /* 设置伪元素的宽度为100% */
+    width: 100%;
+
+    /* 设置伪元素的高度为100% */
+    height: 100%;
+
+    /* 设置伪元素的背景颜色为右侧背景颜色，带有透明度 */
+    background-color: var(--right-bg-color);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+    /* 设置分割元素及其伪元素的过渡动画，持续时间为变量 --speed */
+    transition: all var(--speed) ease-in-out;
+}
+
+.hover-left .left {
+    /* 当容器元素拥有类名 'hover-left' 时，将左侧分割元素的宽度设置为变量 --hover-width */
+    width: var(--hover-width);
+}
+
+.hover-left .right {
+    /* 当容器元素拥有类名 'hover-left' 时，将右侧分割元素的宽度设置为变量 --other-width */
+    width: var(--other-width);
+}
+
+.hover-right .right {
+    /* 当容器元素拥有类名 'hover-right' 时，将右侧分割元素的宽度设置为变量 --hover-width */
+    width: var(--hover-width);
+}
+
+.hover-right .left {
+    /* 当容器元素拥有类名 'hover-right' 时，将左侧分割元素的宽度设置为变量 --other-width */
+    width: var(--other-width);
+}
+
+@media (max-width: 800px) {
+
+    /* 在屏幕宽度小于等于 800px 时应用以下样式 */
+    h1 {
+        /* 将标题的字体大小设置为 2rem */
+        font-size: 2rem;
+        /* 将标题的顶部位置设置为相对于父元素的 30% */
+        top: 30%;
+    }
+
+    .btn {
+        /* 设置按钮的内边距为 1.2rem */
+        padding: 1.2rem;
+        /* 将按钮的宽度设置为 12rem */
+        width: 12rem;
+    }
+}
